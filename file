@@ -1,0 +1,29 @@
+ESTO ES UNA GUIA DEL FUNCIONAMIENTO DE GNL:
+
+Desde un main ejecuto en un int fd = open(file.txt, O_RDONLY);
+luego declaro la varible char* line = get_next_line(fd);
+
+Esto ejecuta el gnl por primera vez, donde se declara un static char stash* = NULL;
+ya que al ser una variable estatica no se volvera a inicializar en ninguna de sus futuras llamadas
+y albergara el valor que le quede al terminar la ejecucion de la funcion por cada llamada.
+
+La funcion llama a stassh = read_to_stash(fd, stash);
+donde a traves de un char* buffer se irán recogiendo valores del tamaño BUFFER_SIZE en BUFFER_SIZE
+leyendolos del file.txt con read(fd, buffer, BUFFER_SIZE + 1);
+en el caso que se encuentre un \n en vez de un \0 se envia la linea con el texto detras del \n
+de este texto se extraera solamente el texto util anterior al \n con ft_extract_line(stash);
+para posteriormente limpiar el stash anterior y eliminar ese texto extraido y dejar solo el texto sobrante
+para la siguiente llamada tenerlo con ft_clean_stash(stash);
+
+
+EJEMPLO:
+
+stash = "Hola que tal\nEstoy bien y tu\nAdios..."
+
+line = "Hola que tal\n"
+
+stash = "Hola que tal\nEstoy bien y tu\nAdios..."
+              ^
+              i acaba aquí y luego i++
+
+new_stash = "Estoy bien y tu\nAdios..."

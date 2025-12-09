@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 11:56:10 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/28 14:45:53 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/12/09 17:57:58 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ char	*ft_strchr(const char *s, int c)
 	if ((char)c == '\0')
 		return ((char *)s);
 	return (NULL);
+}
+
+static void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
+
+	if (!dst && !src)
+		return (NULL);
+	tmp_dst = (unsigned char *) dst;
+	tmp_src = (unsigned char *) src;
+	while (n--)
+		*tmp_dst++ = *tmp_src++;
+	return (dst);
 }
 
 char	*ft_strjoin(char *s1, char const *s2)
