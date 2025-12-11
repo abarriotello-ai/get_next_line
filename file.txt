@@ -27,3 +27,4 @@ stash = "Hola que tal\nEstoy bien y tu\nAdios..."
               i acaba aquí y luego i++
 
 new_stash = "Estoy bien y tu\nAdios..."
+
