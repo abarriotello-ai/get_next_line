@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:02:04 by abarrio           #+#    #+#             */
-/*   Updated: 2025/12/11 13:21:41 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/12/21 13:04:58 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char	*ft_clean_stash(char *stash)
 		return (NULL);
 	}
 	i++;
-	new_stash = ft_strjoin(NULL, stash + i); //(stash + i) == (&stash[i])
+	new_stash = ft_strjoin(NULL, stash + i);
 	if (!new_stash)
 	{
 		free(stash);
@@ -89,12 +89,11 @@ static char	*ft_clean_stash(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash = NULL;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = NULL;
 	stash = ft_read_to_stash(fd, stash);
 	if (!stash)
 		return (NULL);
