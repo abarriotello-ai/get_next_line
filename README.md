@@ -7,7 +7,7 @@ The goal of this project is to implement the function get_next_line, which reads
 Instructions
 
 Compilation:
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c -o tester
 
 The BUFFER_SIZE value can be changed during evaluation by using the flag -D BUFFER_SIZE= (Although it's defined as 42 by default in the get_next_line.h library in case the flag is not used in the compilation).
 
